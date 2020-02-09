@@ -143,9 +143,7 @@ func commitFunc(*cobra.Command, []string) {
 	command.Stdout = os.Stdout
 	command.Stderr = os.Stderr
 
-	if err := command.Run(); nil != err {
-		errorAction(err)
-	}
+	_ = command.Run()
 }
 
 func errorAction(err error) {
