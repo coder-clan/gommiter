@@ -132,14 +132,14 @@ func commitFunc(*cobra.Command, []string) {
 	if err := survey.AskOne(
 		&survey.Confirm{
 			Message: "\n##################################################\n" +
-				content +
-				"##################################################\n" +
+				content + "\n" +
+				"\n##################################################\n" +
 				"请确认以上提交信息",
 		}, &check, survey.Required); nil != err {
 		errorAction(err)
 	}
 
-	command := exec.Command("git", "commit")
+	command := exec.Command("git", "commit", "-m", content)
 	if err := command.Run(); nil != err {
 		errorAction(err)
 	}
