@@ -35,7 +35,7 @@ var multilineQuestionTemplate = `
 
 // 结果格式化模板
 var answerFormatTemplate = `
-{{.Type}}{{if ne .Scope ""}}({{.Scope}}){{end}}:{{.Short}}
+{{.Type}}{{if ne .Scope ""}}({{.Scope}}){{end}}{{": "}}{{.Short}}
 {{if ne .Long ""}}{{.Long}}{{"\n"}}{{end}}
 {{if ne .Breaking ""}}{{"不兼容变更：\n"}}{{.Breaking}}{{"\n"}}{{end}}
 {{if ne .Issue ""}}{{"修复或关闭的issue：\n"}}{{.Issue}}{{end}}

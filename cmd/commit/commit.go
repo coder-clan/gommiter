@@ -140,6 +140,9 @@ func commitFunc(*cobra.Command, []string) {
 	}
 
 	command := exec.Command("git", "commit", "-m", content)
+	command.Stdout = os.Stdout
+	command.Stderr = os.Stderr
+
 	if err := command.Run(); nil != err {
 		errorAction(err)
 	}
