@@ -139,11 +139,13 @@ func commitFunc(*cobra.Command, []string) {
 		errorAction(err)
 	}
 
-	command := exec.Command("git", "commit", "-m", content)
-	command.Stdout = os.Stdout
-	command.Stderr = os.Stderr
+	if check {
+		command := exec.Command("git", "commit", "-m", content)
+		command.Stdout = os.Stdout
+		command.Stderr = os.Stderr
 
-	_ = command.Run()
+		_ = command.Run()
+	}
 }
 
 func errorAction(err error) {
